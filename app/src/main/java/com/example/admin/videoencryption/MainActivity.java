@@ -8,19 +8,19 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button aes;
+    private Button aesblo;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        aes = (Button) findViewById(R.id.aes_bttn);
+        aesblo = (Button) findViewById(R.id.aes_bttn);
 
-        aes.setOnClickListener(new View.OnClickListener() {
+        aesblo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AES.class);
+                Intent i = new Intent(getApplicationContext(), Crypt.class);
                 startActivity(i);
             }
         });

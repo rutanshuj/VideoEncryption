@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -20,10 +21,10 @@ import javax.crypto.CipherOutputStream;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
-import static com.example.admin.videoencryption.AES.decrypt;
-import static com.example.admin.videoencryption.AES.encrypt;
+import static com.example.admin.videoencryption.Crypt.decrypt;
+import static com.example.admin.videoencryption.Crypt.encrypt;
 
-public class AES extends AppCompatActivity{
+public class Crypt extends AppCompatActivity{
     //  Original file
     private static final String filePath = "/storage/emulated/0/DCIM/Videos/wildlife.mp4";
     //  Encrypted file
@@ -34,7 +35,7 @@ public class AES extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.aes);
+        setContentView(R.layout.crypt);
         Button encryptButton = (Button) findViewById(R.id.main_encrypt);
         Button DecryptButton = (Button) findViewById(R.id.main_decrypt);
         encryptButton.setOnClickListener(new View.OnClickListener() {
@@ -80,8 +81,13 @@ public class AES extends AppCompatActivity{
         // Length is 16 byte
         SecretKeySpec sks = new SecretKeySpec("MyDifficultPassw".getBytes(),
                 "AES");
+        byte[] bt = "MyDifficultPassw".getBytes();
+        Log.d("hello", String.valueOf(bt));
+        SecretKeySpec blowfish = new SecretKeySpec("MyDifficultPassw1".getBytes(), "Blowfish");
         // Create cipher
         Cipher cipher = Cipher.getInstance("AES");
+
+
         cipher.init(Cipher.ENCRYPT_MODE, sks);
         // Wrap the output stream
         CipherOutputStream cos = new CipherOutputStream(fos, cipher);
