@@ -9,13 +9,22 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Button aesblo;
-
+    private Button blowbttn;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         aesblo = (Button) findViewById(R.id.aes_bttn);
+        blowbttn = (Button) findViewById(R.id.blowfishbttn);
+
+        blowbttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent k = new Intent(getApplicationContext(), Blowfish.class );
+                startActivity(k);
+            }
+        });
 
         aesblo.setOnClickListener(new View.OnClickListener() {
             @Override

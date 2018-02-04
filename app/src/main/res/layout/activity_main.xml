@@ -15,4 +15,13 @@
         android:layout_marginRight="137dp"
         android:layout_marginEnd="137dp"
         android:layout_marginTop="150dp"/>
+
+    <Button
+        android:text="Blowfish"
+        android:id="@+id/blowfishbttn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aes_bttn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"/>
 </RelativeLayout>

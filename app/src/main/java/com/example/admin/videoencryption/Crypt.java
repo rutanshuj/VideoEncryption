@@ -82,7 +82,6 @@ public class Crypt extends AppCompatActivity{
         SecretKeySpec sks = new SecretKeySpec("MyDifficultPassw".getBytes(),
                 "AES");
         byte[] bt = "MyDifficultPassw".getBytes();
-        Log.d("hello", String.valueOf(bt));
         SecretKeySpec blowfish = new SecretKeySpec("MyDifficultPassw1".getBytes(), "Blowfish");
         // Create cipher
         Cipher cipher = Cipher.getInstance("AES");
