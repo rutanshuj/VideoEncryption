@@ -2,8 +2,9 @@ package com.example.admin.videoencryption;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -45,7 +46,6 @@ import javax.crypto.spec.SecretKeySpec;
 
         FileOutputStream outputStream = new FileOutputStream(outputFile);
         outputStream.write(outputBytes);
-
         inputStream.close();
         outputStream.close();
 
